@@ -11,13 +11,20 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <string.h>
 
 char	*ft_strrchr(const char *str, int c)
 {
-	int	i;
+	char	*save;
 
-	i = ft_strlen(str);
-	while (str[i] != c)
-		i--;
-	return ((char *)str + i);
+	save = NULL;
+	while (str)
+	{
+		if (*str == c)
+			save = ((char *)str);
+		if (!*str)
+			return (save);
+		++str;
+	}
+	return (NULL);
 }

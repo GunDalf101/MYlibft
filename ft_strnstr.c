@@ -23,7 +23,7 @@ char	*ft_strnstr(char *str, char *to_find, size_t len)
 		return (str);
 	while (str[i] != '\0' && i < len)
 	{
-		while (str[i + j] == to_find[j] && str[i + j] != '\0' )
+		while (str[i + j] == to_find[j] && str[i + j] != '\0' && (i + j) < len)
 		{
 			j++;
 		}

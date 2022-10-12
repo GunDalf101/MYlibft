@@ -1,2 +1,2 @@
 # libft
-42cursus First Project
+42cursus PROJECT1

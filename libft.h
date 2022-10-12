@@ -15,11 +15,13 @@
 # include <unistd.h>
 # include <stdlib.h>
 
+char	*ft_itoa(int n);
+size_t	ft_strlcat(char *dst, const char *src, size_t size);
 size_t	ft_strlen(const char *str);
 void	*ft_bzero(void *str, size_t n);
 int		ft_atoi(char *str);
-void	*calloc(size_t nitems, size_t size);
-int		ft_isalpha(int c);
+void	*ft_calloc(size_t nitems, size_t size);
+int		ft_isalnum(int c);
 int		ft_isalpha(int c);
 int		ft_isascii(int c);
 int		ft_isdigit(int c);
@@ -44,5 +46,6 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_tolower(int ch);
 int		ft_toupper(int ch);
+char	**ft_split(char const *s, char c);
 
 #endif
