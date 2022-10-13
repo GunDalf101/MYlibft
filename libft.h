@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbennani <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mbennani <mbennani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 17:06:41 by mbennani          #+#    #+#             */
-/*   Updated: 2022/10/08 17:11:45 by mbennani         ###   ########.fr       */
+/*   Updated: 2022/10/13 09:02:20 by mbennani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,9 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-char	*ft_itoa(int n);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 size_t	ft_strlen(const char *str);
-void	*ft_bzero(void *str, size_t n);
+void	ft_bzero(void *str, size_t n);
 int		ft_atoi(char *str);
 void	*ft_calloc(size_t nitems, size_t size);
 int		ft_isalnum(int c);
@@ -46,6 +45,9 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_tolower(int ch);
 int		ft_toupper(int ch);
+char	*ft_itoa(int n);
 char	**ft_split(char const *s, char c);
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 
 #endif

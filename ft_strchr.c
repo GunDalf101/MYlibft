@@ -20,7 +20,7 @@ char	*ft_strchr(const char *str, int ch)
 			return ((char *)str);
 		if (*str == '\0')
 			return (NULL);
-		++str;
+		str++;
 	}
 	return (NULL);
 }
