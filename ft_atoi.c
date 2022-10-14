@@ -3,16 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbennani <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mbennani <mbennani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 08:52:23 by mbennani          #+#    #+#             */
-/*   Updated: 2022/10/08 17:06:46 by mbennani         ###   ########.fr       */
+/*   Updated: 2022/10/14 08:05:55 by mbennani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	isnotspace(char *str, int *pi)
+static int	isoverflow(long long int prev, long long int curr)
+{
+	if (curr / 10 == prev)
+		return (0);
+	return (1);
+}
+
+static int	itisspace(char *str, int *pi)
 {
 	int	count;
 	int	i;
@@ -34,18 +41,27 @@ int	isnotspace(char *str, int *pi)
 
 int	ft_atoi(char *str)
 {
-	int	sign;
-	int	result;
-	int	i;
+	int				sign;
+	long long int	res;
+	long long int	prv;
+	int				i;
 
-	result = 0;
-	sign = isnotspace(str, &i);
+	res = 0;
+	sign = itisspace(str, &i);
 	while (str[i] && str[i] >= 48 && str[i] <= 57)
 	{
-		result *= 10;
-		result += str[i] - 48;
+		prv = res;
+		res = res * 10 + (str[i] - 48);
+		if (isoverflow(prv, res) == 1)
+		{
+			if (sign == -1)
+			{
+				return (0);
+			}
+			return (-1);
+		}
 		i++;
 	}
-	result *= sign;
-	return (result);
+	res *= sign;
+	return (res);
 }

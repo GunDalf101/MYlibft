@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbennani <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mbennani <mbennani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 21:56:42 by mbennani          #+#    #+#             */
-/*   Updated: 2022/10/10 21:56:50 by mbennani         ###   ########.fr       */
+/*   Updated: 2022/10/13 23:35:32 by mbennani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	len_nb(long int n)
+static int	len_nb(long int n)
 {
 	long int	len;
 

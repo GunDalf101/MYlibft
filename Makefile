@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mbennani <mbennani@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/10/14 11:46:17 by mbennani          #+#    #+#              #
+#    Updated: 2022/10/14 14:52:14 by mbennani         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME		= libft.a
 
 SRCS		= ft_memset.c \
@@ -39,10 +51,6 @@ BNS_SRCS	= ft_lstnew.c \
 			  ft_lstsize.c \
 			  ft_lstlast.c \
 			  ft_lstadd_back.c \
-			  ft_lstdelone.c \
-			  ft_lstclear.c \
-			  ft_lstiter.c \
-			  ft_lstmap.c \
 				
 OBJS		= $(SRCS:%.c=%.o)
 

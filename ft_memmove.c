@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbennani <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mbennani <mbennani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 23:44:29 by mbennani          #+#    #+#             */
-/*   Updated: 2022/10/07 05:00:30 by mbennani         ###   ########.fr       */
+/*   Updated: 2022/10/14 01:10:59 by mbennani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 			d[n] = s[n];
 	}
 	else
-	{
-		ft_memcpy(d, s, n);
-	}
+		d = ft_memcpy(d, s, n);
 	return (d);
 }

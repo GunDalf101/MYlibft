@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbennani <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mbennani <mbennani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 01:02:56 by mbennani          #+#    #+#             */
-/*   Updated: 2022/10/10 01:16:25 by mbennani         ###   ########.fr       */
+/*   Updated: 2022/10/14 17:15:48 by mbennani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	wordcounter(const char *str, char c)
+static size_t	wordcounter(const char *str, char c)
 {
-	int	i;
-	int	num;
+	size_t	i;
+	size_t	num;
 
 	i = 0;
 	num = 0;
@@ -33,10 +33,10 @@ static int	wordcounter(const char *str, char c)
 	return (i);
 }
 
-static char	*wordput(const char *str, int start, int finish)
+static char	*wordput(const char *str, size_t start, size_t finish)
 {
-	char	*word;
-	int		i;
+	char		*word;
+	size_t		i;
 
 	i = 0;
 	word = malloc((finish - start + 1) * sizeof(char));
@@ -44,6 +44,25 @@ static char	*wordput(const char *str, int start, int finish)
 		word[i++] = str[start++];
 	word[i] = '\0';
 	return (word);
+}
+
+static char	**free_all(char **s, size_t i)
+{
+	while (i >= 0 && s[i] != NULL)
+	{
+		free(s[i]);
+		s[i] = NULL;
+		i--;
+	}
+	free(s);
+	s = NULL;
+	return (NULL);
+}
+
+static int	free_ptr(char **str)
+{
+	free (str);
+	return (1);
 }
 
 char	**ft_split(char const *s, char c)
@@ -54,21 +73,22 @@ char	**ft_split(char const *s, char c)
 	char	**doublestr;
 
 	doublestr = malloc((wordcounter(s, c) + 1) * sizeof(char *));
-	if (!s || !doublestr)
-		return (0);
-	i = 0;
+	if (!s || (!doublestr && free_ptr(doublestr)))
+		return (NULL);
+	i = -1;
 	j = 0;
 	id = -1;
-	while (i <= ft_strlen(s))
+	while (++i <= ft_strlen(s))
 	{
 		if (s[i] != c && id < 0)
 			id = i;
 		else if ((s[i] == c || i == ft_strlen(s)) && id >= 0)
 		{
-			doublestr[j++] = wordput(s, id, i);
+			doublestr[j] = wordput(s, id, i);
+			if (!doublestr[j++] && i < wordcounter(s, c))
+				return (free_all(doublestr, j));
 			id = -1;
 		}
-		i++;
 	}
 	doublestr[j] = 0;
 	return (doublestr);
