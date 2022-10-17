@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbennani <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mbennani <mbennani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 23:13:28 by mbennani          #+#    #+#             */
-/*   Updated: 2022/10/08 17:05:14 by mbennani         ###   ########.fr       */
+/*   Updated: 2022/10/16 09:01:46 by mbennani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ size_t	ft_strlen(const char *str)
 
 	counter = 0;
 	while (str[counter])
-	{
 		counter++;
-	}
 	return (counter);
 }

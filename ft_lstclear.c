@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbennani <mbennani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 06:24:19 by mbennani          #+#    #+#             */
-/*   Updated: 2022/10/16 05:58:06 by mbennani         ###   ########.fr       */
+/*   Created: 2022/10/17 04:49:31 by mbennani          #+#    #+#             */
+/*   Updated: 2022/10/17 05:37:20 by mbennani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *str1, const void *str2, size_t n)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	size_t						i;
-	const unsigned char			*s1;
-	const unsigned char			*s2;
+	t_list	*temp;
 
-	i = 0;
-	s1 = str1;
-	s2 = str2;
-	if (n == 0)
-		return (0);
-	while (i < n)
+	if (!lst || !*lst || !del)
+		return ;
+	if (lst && del)
 	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
-		i++;
+		while (*lst)
+		{
+			temp = (*lst)->next;
+			del((*lst)->content);
+			free(*lst);
+			*lst = temp;
+		}
 	}
-	i--;
-	return (s1[i] - s2[i]);
+	*lst = NULL;
 }

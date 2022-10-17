@@ -6,7 +6,7 @@
 /*   By: mbennani <mbennani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 13:47:18 by mbennani          #+#    #+#             */
-/*   Updated: 2022/10/14 14:41:40 by mbennani         ###   ########.fr       */
+/*   Updated: 2022/10/17 05:53:59 by mbennani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,12 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	while (lst->next != NULL)
-		lst = lst->next;
-	return (lst);
+	t_list	*last;
+
+	last = lst;
+	if (!last)
+		return (NULL);
+	while (last->next != NULL)
+		last = last->next;
+	return (last);
 }

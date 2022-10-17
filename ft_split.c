@@ -6,7 +6,7 @@
 /*   By: mbennani <mbennani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 01:02:56 by mbennani          #+#    #+#             */
-/*   Updated: 2022/10/14 17:15:48 by mbennani         ###   ########.fr       */
+/*   Updated: 2022/10/17 04:53:18 by mbennani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,11 @@ static char	**free_all(char **s, size_t i)
 	return (NULL);
 }
 
-static int	free_ptr(char **str)
+static void	valinit(size_t *i, size_t *j, int *id)
 {
-	free (str);
-	return (1);
+	*i = -1;
+	*j = 0;
+	*id = -1;
 }
 
 char	**ft_split(char const *s, char c)
@@ -72,12 +73,12 @@ char	**ft_split(char const *s, char c)
 	int		id;
 	char	**doublestr;
 
+	valinit (&i, &j, &id);
+	if (!s)
+		return (0);
 	doublestr = malloc((wordcounter(s, c) + 1) * sizeof(char *));
-	if (!s || (!doublestr && free_ptr(doublestr)))
+	if (!doublestr)
 		return (NULL);
-	i = -1;
-	j = 0;
-	id = -1;
 	while (++i <= ft_strlen(s))
 	{
 		if (s[i] != c && id < 0)

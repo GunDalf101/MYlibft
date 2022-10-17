@@ -6,7 +6,7 @@
 /*   By: mbennani <mbennani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 21:56:42 by mbennani          #+#    #+#             */
-/*   Updated: 2022/10/13 23:35:32 by mbennani         ###   ########.fr       */
+/*   Updated: 2022/10/17 05:44:12 by mbennani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static int	len_nb(long int n)
 	long int	len;
 
 	len = 0;
+	if (n == 0)
+		return (1);
 	if (n < 0)
 	{
 		n = n * -1;
@@ -30,16 +32,8 @@ static int	len_nb(long int n)
 	return (len);
 }
 
-char	*ft_itoa(int nb)
+char	*realitoa(long int n, int i, char *str)
 {
-	char		*str;
-	int			i;
-	long int	n;
-
-	n = nb;
-	i = len_nb(n);
-	str = (char *)malloc(sizeof(char) * (i + 1));
-	str[i--] = '\0';
 	if (n == 0)
 	{
 		str[0] = 48;
@@ -57,4 +51,19 @@ char	*ft_itoa(int nb)
 		i--;
 	}
 	return (str);
+}
+
+char	*ft_itoa(int nb)
+{
+	char		*str;
+	int			i;
+	long int	n;
+
+	n = nb;
+	i = len_nb(n);
+	str = (char *)malloc(sizeof(char) * i + 1);
+	if (!str)
+		return (NULL);
+	str[i--] = '\0';
+	return (realitoa(n, i, str));
 }

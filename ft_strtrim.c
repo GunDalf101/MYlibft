@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbennani <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mbennani <mbennani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 16:33:09 by mbennani          #+#    #+#             */
-/*   Updated: 2022/10/08 17:49:34 by mbennani         ###   ########.fr       */
+/*   Updated: 2022/10/16 06:37:30 by mbennani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		trimlen;
 	char	*news;
 
+	if (!s1)
+		return (0);
 	i = 0;
 	j = 0;
 	len = ft_strlen(s1);

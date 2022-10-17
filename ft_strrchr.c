@@ -6,7 +6,7 @@
 /*   By: mbennani <mbennani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 04:18:03 by mbennani          #+#    #+#             */
-/*   Updated: 2022/10/14 17:36:07 by mbennani         ###   ########.fr       */
+/*   Updated: 2022/10/16 10:55:08 by mbennani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strrchr(const char *str, int c)
 	char	*save;
 
 	save = NULL;
-	while (str)
+	while (1 != 0)
 	{
 		if (*str == c)
 			save = ((char *)str);

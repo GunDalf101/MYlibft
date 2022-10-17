@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbennani <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mbennani <mbennani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 08:43:24 by mbennani          #+#    #+#             */
-/*   Updated: 2022/10/08 17:11:48 by mbennani         ###   ########.fr       */
+/*   Updated: 2022/10/16 18:08:49 by mbennani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strnstr(char *str, char *to_find, size_t len)
 	j = 0;
 	if (to_find[j] == '\0')
 		return (str);
-	while (str[i] != '\0' && i < len)
+	while (i < len)
 	{
 		while (str[i + j] == to_find[j] && str[i + j] != '\0' && (i + j) < len)
 		{

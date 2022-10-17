@@ -6,7 +6,7 @@
 /*   By: mbennani <mbennani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 23:20:37 by mbennani          #+#    #+#             */
-/*   Updated: 2022/10/14 17:05:59 by mbennani         ###   ########.fr       */
+/*   Updated: 2022/10/16 06:50:00 by mbennani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,11 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	str = malloc((ft_strlen(s) + 1) * sizeof(char));
 	if (!str)
 		return (NULL);
-	if (s && f)
+	while (i < ft_strlen(s))
 	{
-		while (i < ft_strlen(s))
-		{
-			str[i] = (*f)(i, s[i]);
-			i++;
-		}
+		str[i] = (*f)(i, s[i]);
+		i++;
 	}
+	str[i] = '\0';
 	return (str);
 }

@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbennani <mbennani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 06:24:19 by mbennani          #+#    #+#             */
-/*   Updated: 2022/10/16 05:58:06 by mbennani         ###   ########.fr       */
+/*   Created: 2022/10/17 04:58:25 by mbennani          #+#    #+#             */
+/*   Updated: 2022/10/17 05:55:56 by mbennani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *str1, const void *str2, size_t n)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	size_t						i;
-	const unsigned char			*s1;
-	const unsigned char			*s2;
+	t_list	*newlst;
+	t_list	*newel;
 
-	i = 0;
-	s1 = str1;
-	s2 = str2;
-	if (n == 0)
-		return (0);
-	while (i < n)
+	if (!f || !del)
+		return (NULL);
+	newlst = NULL;
+	while (lst)
 	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
-		i++;
+		newel = ft_lstnew (f(lst->content));
+		if (!newel)
+		{
+			ft_lstclear(&lst, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&newlst, newel);
+		lst = lst->next;
 	}
-	i--;
-	return (s1[i] - s2[i]);
+	return (newlst);
 }
