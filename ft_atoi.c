@@ -6,7 +6,7 @@
 /*   By: mbennani <mbennani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 08:52:23 by mbennani          #+#    #+#             */
-/*   Updated: 2022/10/14 08:05:55 by mbennani         ###   ########.fr       */
+/*   Updated: 2022/10/18 23:23:37 by mbennani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	isoverflow(long long int prev, long long int curr)
 	return (1);
 }
 
-static int	itisspace(char *str, int *pi)
+static int	itisspace(const char *str, int *pi)
 {
 	int	count;
 	int	i;
@@ -39,7 +39,7 @@ static int	itisspace(char *str, int *pi)
 	return (count);
 }
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
 	int				sign;
 	long long int	res;

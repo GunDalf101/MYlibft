@@ -6,7 +6,7 @@
 /*   By: mbennani <mbennani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 21:56:42 by mbennani          #+#    #+#             */
-/*   Updated: 2022/10/17 05:44:12 by mbennani         ###   ########.fr       */
+/*   Updated: 2022/10/19 01:06:48 by mbennani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int	len_nb(long int n)
 	return (len);
 }
 
-char	*realitoa(long int n, int i, char *str)
+static char	*realitoa(long int n, int i, char *str)
 {
 	if (n == 0)
 	{
