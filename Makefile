@@ -6,7 +6,7 @@
 #    By: mbennani <mbennani@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/14 11:46:17 by mbennani          #+#    #+#              #
-#    Updated: 2022/10/21 07:29:49 by mbennani         ###   ########.fr        #
+#    Updated: 2022/10/21 17:03:25 by mbennani         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,16 +65,18 @@ BNS_OBJS	= $(BNS_SRCS:%.c=%.o)
 FLAGS		= -Wall -Werror -Wextra
 
 all: $(NAME)
-%.o : %.c
-	gcc $(FLAGS) -c $^
+%.o : %.c libft.h
+	cc $(FLAGS) -c $<
 $(NAME):$(OBJS)
 	ar rc $(NAME) $(OBJS)
 bonus:$(BNS_OBJS) all
 	ar rc $(NAME) $(BNS_OBJS)
 clean:
-	rm -rf $(OBJS) $(BNS_OBJS)
+	rm -f $(OBJS) $(BNS_OBJS)
 	
 fclean: clean
-	rm -rf $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: all re clean fclean
