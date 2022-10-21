@@ -6,7 +6,7 @@
 /*   By: mbennani <mbennani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 08:52:23 by mbennani          #+#    #+#             */
-/*   Updated: 2022/10/18 23:23:37 by mbennani         ###   ########.fr       */
+/*   Updated: 2022/10/20 23:13:23 by mbennani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,7 @@ int	ft_atoi(const char *str)
 		if (isoverflow(prv, res) == 1)
 		{
 			if (sign == -1)
-			{
 				return (0);
-			}
 			return (-1);
 		}
 		i++;

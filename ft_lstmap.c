@@ -6,7 +6,7 @@
 /*   By: mbennani <mbennani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 04:58:25 by mbennani          #+#    #+#             */
-/*   Updated: 2022/10/17 05:55:56 by mbennani         ###   ########.fr       */
+/*   Updated: 2022/10/20 21:49:32 by mbennani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		newel = ft_lstnew (f(lst->content));
 		if (!newel)
 		{
-			ft_lstclear(&lst, del);
+			ft_lstclear(&newlst, del);
 			return (NULL);
 		}
 		ft_lstadd_back(&newlst, newel);
