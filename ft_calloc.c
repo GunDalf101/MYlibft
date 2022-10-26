@@ -6,7 +6,7 @@
 /*   By: mbennani <mbennani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 08:59:26 by mbennani          #+#    #+#             */
-/*   Updated: 2022/10/21 07:38:18 by mbennani         ###   ########.fr       */
+/*   Updated: 2022/10/23 00:56:12 by mbennani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,12 @@
 void	*ft_calloc(size_t nitems, size_t size)
 {
 	void	*v;
+	size_t	allo;
 
-	if (nitems == 0 || size == 0)
-	{
-		nitems = 1;
-		size = 1;
-	}
-	v = malloc(nitems * size);
+	allo = nitems * size;
+	if (size != 0 && allo / size != nitems)
+		return (NULL);
+	v = malloc(allo);
 	if (v)
 		ft_bzero (v, nitems * size);
 	return (v);

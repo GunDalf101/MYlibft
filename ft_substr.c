@@ -6,7 +6,7 @@
 /*   By: mbennani <mbennani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 10:46:25 by mbennani          #+#    #+#             */
-/*   Updated: 2022/10/20 21:40:12 by mbennani         ###   ########.fr       */
+/*   Updated: 2022/10/26 04:53:26 by mbennani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	i;
 	size_t	size;
 
+	if (ft_strlen(s) < start)
+		return (ft_strdup("\0"));
 	i = 0;
 	size = ft_strlen(s + start);
-	if (ft_strlen(s) < start)
-	{
-		str = malloc(1);
-		*str = '\0';
-		return (str);
-	}
 	if (size < len)
 		len = size;
 	str = malloc((len + 1) * sizeof(char));

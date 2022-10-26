@@ -6,7 +6,7 @@
 /*   By: mbennani <mbennani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 01:02:56 by mbennani          #+#    #+#             */
-/*   Updated: 2022/10/21 16:33:50 by mbennani         ###   ########.fr       */
+/*   Updated: 2022/10/23 20:17:29 by mbennani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ static char	*wordput(const char *str, size_t start, size_t finish)
 
 	i = 0;
 	word = malloc((finish - start + 1) * sizeof(char));
+	if (!word)
+		return (NULL);
 	while (start < finish)
 		word[i++] = str[start++];
 	word[i] = '\0';
@@ -87,7 +89,7 @@ char	**ft_split(char const *s, char c)
 		{
 			doublestr[j] = wordput(s, id, i);
 			if (!doublestr[j++] && i < wordcounter(s, c))
-				return (free_all(doublestr, j));
+				return (free_all(doublestr, --j));
 			id = -1;
 		}
 	}
